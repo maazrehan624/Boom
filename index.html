@@ -13,12 +13,54 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Bebas+Neue&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div id="loader" class="loader-overlay">
+        <div class="radar-loader">
+            <div class="radar-circle"></div>
+            <div class="radar-sweep"></div>
+            <span class="loader-text">Loading...</span>
+        </div>
+    </div>
+    
     <div class="theme-toggle">
         <i class="fas fa-moon"></i>
     </div>
     
     <div class="search-container">
         <input type="text" id="searchInput" placeholder="Search guns...">
+        <select id="filterEra">
+            <option value="">All Eras</option>
+            <option value="ww1">WWI</option>
+            <option value="ww2">WWII</option>
+            <option value="coldwar">Cold War</option>
+            <option value="modern">Modern</option>
+        </select>
+        <select id="filterOrigin">
+            <option value="">All Origins</option>
+            <option value="usa">USA</option>
+            <option value="russia">Russia</option>
+            <option value="germany">Germany</option>
+            <option value="china">China</option>
+            <option value="israel">Israel</option>
+            <option value="uk">UK</option>
+            <option value="france">France</option>
+            <option value="italy">Italy</option>
+            <option value="austria">Austria</option>
+            <option value="belgium">Belgium</option>
+            <option value="croatia">Croatia</option>
+            <option value="czech">Czech Republic</option>
+            <option value="southkorea">South Korea</option>
+            <!-- Add more as needed -->
+        </select>
+        <select id="filterType">
+            <option value="">All Types</option>
+            <option value="rifle">Rifles</option>
+            <option value="handgun">Handguns</option>
+            <option value="smg">SMG</option>
+            <option value="carbine">Carbine</option>
+            <option value="battle">Battle Rifle</option>
+            <option value="bullpup">Bullpup</option>
+            <!-- Add more as needed -->
+        </select>
         <i class="fas fa-search"></i>
     </div>
 
@@ -585,8 +627,13 @@
         <div class="gallery-filters">
             <button class="filter-btn active" data-filter="all">All</button>
             <button class="filter-btn" data-filter="rifles">Rifles</button>
-            <button class="filter-btn" data-filter="pistols">Pistols</button>
             <button class="filter-btn" data-filter="historical">Historical</button>
+            <select id="sortGallery">
+                <option value="default">Sort By</option>
+                <option value="year">Year</option>
+                <option value="country">Country</option>
+                <option value="popularity">Popularity</option>
+            </select>
         </div>
         <div class="gallery-grid">
             <div class="gallery-item" data-category="rifles">
@@ -596,6 +643,9 @@
                         <h3>AK-47</h3>
                         <p>Iconic Russian assault rifle</p>
                         <button class="view-details">View Details</button>
+                        <label class="compare-checkbox-label">
+                            <input type="checkbox" class="compare-checkbox" data-weapon="AK-47"> Compare
+                        </label>
                     </div>
                 </div>
             </div>
@@ -606,6 +656,9 @@
                         <h3>M4A1</h3>
                         <p>Modern US military carbine</p>
                         <button class="view-details">View Details</button>
+                        <label class="compare-checkbox-label">
+                            <input type="checkbox" class="compare-checkbox" data-weapon="M4A1"> Compare
+                        </label>
                     </div>
                 </div>
             </div>
@@ -616,6 +669,9 @@
                         <h3>MP5</h3>
                         <p>German submachine gun</p>
                         <button class="view-details">View Details</button>
+                        <label class="compare-checkbox-label">
+                            <input type="checkbox" class="compare-checkbox" data-weapon="MP5"> Compare
+                        </label>
                     </div>
                 </div>
             </div>
@@ -626,6 +682,9 @@
                         <h3>AR-15</h3>
                         <p>Popular civilian rifle platform</p>
                         <button class="view-details">View Details</button>
+                        <label class="compare-checkbox-label">
+                            <input type="checkbox" class="compare-checkbox" data-weapon="AR-15"> Compare
+                        </label>
                     </div>
                 </div>
             </div>
@@ -636,6 +695,9 @@
                         <h3>FN FAL</h3>
                         <p>Battle rifle of the free world</p>
                         <button class="view-details">View Details</button>
+                        <label class="compare-checkbox-label">
+                            <input type="checkbox" class="compare-checkbox" data-weapon="FN FAL"> Compare
+                        </label>
                     </div>
                 </div>
             </div>
@@ -646,6 +708,9 @@
                         <h3>HK G3</h3>
                         <p>German battle rifle</p>
                         <button class="view-details">View Details</button>
+                        <label class="compare-checkbox-label">
+                            <input type="checkbox" class="compare-checkbox" data-weapon="HK G3"> Compare
+                        </label>
                     </div>
                 </div>
             </div>
@@ -656,6 +721,9 @@
                         <h3>SIG MCX</h3>
                         <p>Modern modular rifle system</p>
                         <button class="view-details">View Details</button>
+                        <label class="compare-checkbox-label">
+                            <input type="checkbox" class="compare-checkbox" data-weapon="SIG MCX"> Compare
+                        </label>
                     </div>
                 </div>
             </div>
@@ -666,6 +734,9 @@
                         <h3>HK416</h3>
                         <p>Improved M4 carbine</p>
                         <button class="view-details">View Details</button>
+                        <label class="compare-checkbox-label">
+                            <input type="checkbox" class="compare-checkbox" data-weapon="HK416"> Compare
+                        </label>
                     </div>
                 </div>
             </div>
@@ -676,6 +747,9 @@
                         <h3>Steyr AUG</h3>
                         <p>Austrian bullpup assault rifle</p>
                         <button class="view-details">View Details</button>
+                        <label class="compare-checkbox-label">
+                            <input type="checkbox" class="compare-checkbox" data-weapon="Steyr AUG"> Compare
+                        </label>
                     </div>
                 </div>
             </div>
@@ -686,6 +760,9 @@
                         <h3>IWI Tavor</h3>
                         <p>Israeli bullpup assault rifle</p>
                         <button class="view-details">View Details</button>
+                        <label class="compare-checkbox-label">
+                            <input type="checkbox" class="compare-checkbox" data-weapon="IWI Tavor"> Compare
+                        </label>
                     </div>
                 </div>
             </div>
@@ -696,6 +773,9 @@
                         <h3>Galil</h3>
                         <p>Israeli assault rifle</p>
                         <button class="view-details">View Details</button>
+                        <label class="compare-checkbox-label">
+                            <input type="checkbox" class="compare-checkbox" data-weapon="Galil"> Compare
+                        </label>
                     </div>
                 </div>
             </div>
@@ -706,6 +786,9 @@
                         <h3>FAMAS</h3>
                         <p>French bullpup assault rifle</p>
                         <button class="view-details">View Details</button>
+                        <label class="compare-checkbox-label">
+                            <input type="checkbox" class="compare-checkbox" data-weapon="FAMAS"> Compare
+                        </label>
                     </div>
                 </div>
             </div>
@@ -716,6 +799,9 @@
                         <h3>L85</h3>
                         <p>British bullpup assault rifle</p>
                         <button class="view-details">View Details</button>
+                        <label class="compare-checkbox-label">
+                            <input type="checkbox" class="compare-checkbox" data-weapon="L85"> Compare
+                        </label>
                     </div>
                 </div>
             </div>
@@ -726,6 +812,9 @@
                         <h3>QBZ-95</h3>
                         <p>Chinese bullpup assault rifle</p>
                         <button class="view-details">View Details</button>
+                        <label class="compare-checkbox-label">
+                            <input type="checkbox" class="compare-checkbox" data-weapon="QBZ-95"> Compare
+                        </label>
                     </div>
                 </div>
             </div>
@@ -736,6 +825,9 @@
                         <h3>VHS-2</h3>
                         <p>Croatian bullpup assault rifle</p>
                         <button class="view-details">View Details</button>
+                        <label class="compare-checkbox-label">
+                            <input type="checkbox" class="compare-checkbox" data-weapon="VHS-2"> Compare
+                        </label>
                     </div>
                 </div>
             </div>
@@ -746,6 +838,9 @@
                         <h3>CZ Bren 2</h3>
                         <p>Czech assault rifle</p>
                         <button class="view-details">View Details</button>
+                        <label class="compare-checkbox-label">
+                            <input type="checkbox" class="compare-checkbox" data-weapon="CZ Bren 2"> Compare
+                        </label>
                     </div>
                 </div>
             </div>
@@ -756,6 +851,9 @@
                         <h3>Beretta ARX-160</h3>
                         <p>Italian assault rifle</p>
                         <button class="view-details">View Details</button>
+                        <label class="compare-checkbox-label">
+                            <input type="checkbox" class="compare-checkbox" data-weapon="Beretta ARX-160"> Compare
+                        </label>
                     </div>
                 </div>
             </div>
@@ -766,6 +864,9 @@
                         <h3>Desert Tech MDR</h3>
                         <p>American bullpup assault rifle</p>
                         <button class="view-details">View Details</button>
+                        <label class="compare-checkbox-label">
+                            <input type="checkbox" class="compare-checkbox" data-weapon="Desert Tech MDR"> Compare
+                        </label>
                     </div>
                 </div>
             </div>
@@ -776,6 +877,9 @@
                         <h3>Kel-Tec RDB</h3>
                         <p>American bullpup assault rifle</p>
                         <button class="view-details">View Details</button>
+                        <label class="compare-checkbox-label">
+                            <input type="checkbox" class="compare-checkbox" data-weapon="Kel-Tec RDB"> Compare
+                        </label>
                     </div>
                 </div>
             </div>
@@ -786,6 +890,9 @@
                         <h3>Bushmaster ACR</h3>
                         <p>American assault rifle</p>
                         <button class="view-details">View Details</button>
+                        <label class="compare-checkbox-label">
+                            <input type="checkbox" class="compare-checkbox" data-weapon="Bushmaster ACR"> Compare
+                        </label>
                     </div>
                 </div>
             </div>
@@ -796,6 +903,9 @@
                         <h3>Daewoo K2</h3>
                         <p>South Korean assault rifle</p>
                         <button class="view-details">View Details</button>
+                        <label class="compare-checkbox-label">
+                            <input type="checkbox" class="compare-checkbox" data-weapon="Daewoo K2"> Compare
+                        </label>
                     </div>
                 </div>
             </div>
@@ -806,6 +916,9 @@
                         <h3>XM8</h3>
                         <p>Prototype assault rifle</p>
                         <button class="view-details">View Details</button>
+                        <label class="compare-checkbox-label">
+                            <input type="checkbox" class="compare-checkbox" data-weapon="XM8"> Compare
+                        </label>
                     </div>
                 </div>
             </div>
@@ -816,6 +929,9 @@
                         <h3>M16</h3>
                         <p>Iconic US military rifle</p>
                         <button class="view-details">View Details</button>
+                        <label class="compare-checkbox-label">
+                            <input type="checkbox" class="compare-checkbox" data-weapon="M16"> Compare
+                        </label>
                     </div>
                 </div>
             </div>
@@ -826,20 +942,12 @@
                         <h3>G36C</h3>
                         <p>German compact assault rifle</p>
                         <button class="view-details">View Details</button>
+                        <label class="compare-checkbox-label">
+                            <input type="checkbox" class="compare-checkbox" data-weapon="G36C"> Compare
+                        </label>
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- Handgun gallery grid for page 2, initially hidden -->
-        <div class="handgun-gallery-grid gallery-grid" style="display:none;"></div>
-        <div class="gallery-pagination">
-            <button class="prev-page" disabled>Previous</button>
-            <div class="page-numbers">
-                <button class="page-number active">1</button>
-                <button class="page-number">2</button>
-                <button class="page-number">3</button>
-            </div>
-            <button class="next-page">Next</button>
         </div>
     </section>
 
@@ -1063,7 +1171,27 @@
         </div>
     </footer>
 
+    <div id="weaponModal" class="modal-overlay">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-weapon-details"></div>
+            <button class="download-fact-sheet"><i class="fas fa-download"></i> Download Fact Sheet</button>
+            <button class="add-to-compare"><i class="fas fa-balance-scale"></i> Add to Compare</button>
+        </div>
+    </div>
+
+    <div id="compareModal" class="modal-overlay">
+        <div class="modal-content compare-modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="comparison-cards"></div>
+            <button class="download-comparison"><i class="fas fa-download"></i> Download Comparison PDF</button>
+        </div>
+    </div>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </body>
 </html>
